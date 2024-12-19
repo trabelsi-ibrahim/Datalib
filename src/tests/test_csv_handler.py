@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import os
-from src.datalib.preprocessing.csv_handler import load_csv, save_csv, filter_data
+from datalib.preprocessing.csv_handler import load_csv, save_csv, filter_data
 
 @pytest.fixture
 def sample_dataframe():

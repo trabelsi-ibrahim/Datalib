@@ -4,7 +4,8 @@ from .basic_stats import (
     calculate_median,
     calculate_mode,
     calculate_std,
-    calculate_correlation
+    calculate_correlation,
+    calculate_mean
 )
 
 from .statistical_tests import (

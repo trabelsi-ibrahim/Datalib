@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from src.datalib.preprocessing.transformations import normalize_data, handle_missing_values
+from datalib.preprocessing.transformations import normalize_data, handle_missing_values
 
 @pytest.fixture
 def sample_normalize_data():

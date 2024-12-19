@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import matplotlib.pyplot as plt
-from src.datalib.visualization.charts import bar_chart, scatter_plot
+from datalib.visualization.charts import bar_chart, scatter_plot
 
 @pytest.fixture
 def sample_bar_chart_data():
