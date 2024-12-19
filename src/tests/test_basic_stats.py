@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from src.datalib.statslib.basic_stats import calculate_mode, calculate_std, calculate_correlation
+from datalib.statslib.basic_stats import calculate_mode, calculate_std, calculate_correlation
 
 @pytest.fixture
 def sample_mode_data():
