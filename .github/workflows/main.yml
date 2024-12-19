@@ -23,9 +23,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install seaborn  # Install seaborn explicitly
-        pip install pytest  # Install pytest explicitly if not in requirements.txt
+        pip install seaborn
+        pip install pytest
 
-    - name: Run tests with PYTHONPATH
+    - name: Run tests with updated PYTHONPATH
       run: |
-        export PYTHONPATH=src && pytest  # Set PYTHONPATH before running pytest
+        export PYTHONPATH=$(pwd)/src && pytest  # Use full path to src
