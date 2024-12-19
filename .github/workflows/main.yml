@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests with PYTHONPATH
       run: |
-        PYTHONPATH=src pytest  # Set PYTHONPATH directly for pytest
+        export PYTHONPATH=src && pytest  # Set PYTHONPATH before running pytest
