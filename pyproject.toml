@@ -10,7 +10,7 @@ package_dir = {"" = "src"}
 python_requires = ">=3.7"
 
 [tool.setuptools.install_requires]
-numpy
-pandas
-matplotlib
-scikit-learn
+"numpy"
+"pandas"
+"matplotlib"
+"scikit-learn"
