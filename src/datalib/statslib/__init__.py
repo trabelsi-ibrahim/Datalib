@@ -1,7 +1,6 @@
-# src/datalib/statistics/__init__.py
+# src/datalib/datalib_stats/__init__.py
 
 from .basic_stats import (
-    calculate_mean,
     calculate_median,
     calculate_mode,
     calculate_std,

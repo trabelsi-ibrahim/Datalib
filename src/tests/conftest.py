@@ -62,3 +62,4 @@ def test_dataframe_column_deletion(sample_dataframe):
     
     # Ensure the remaining columns are correct
     assert list(sample_dataframe.columns) == ["col1"], "Remaining columns should be ['col1']."
+
