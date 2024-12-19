@@ -1,6 +1,7 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
 def correlation_matrix(dataframe, annot=True, cmap="coolwarm", figsize=(10, 8), title="Correlation Matrix"):
     """
     Génère une matrice de corrélation sous forme de heatmap avec options de personnalisation.
@@ -13,19 +14,20 @@ def correlation_matrix(dataframe, annot=True, cmap="coolwarm", figsize=(10, 8), 
         title (str, optional): Le titre de la matrice de corrélation (par défaut "Correlation Matrix").
 
     Returns:
-        None
+        matplotlib.figure.Figure: La figure contenant la heatmap de la matrice de corrélation.
     """
     # Calcul de la matrice de corrélation
     corr = dataframe.corr()
 
-    # Création de la figure
-    plt.figure(figsize=figsize)
+    # Création de la figure et de l'axe
+    fig, ax = plt.subplots(figsize=figsize)
 
     # Génération de la heatmap
-    sns.heatmap(corr, annot=annot, cmap=cmap, fmt='.2f', linewidths=0.5, cbar_kws={'shrink': 0.8})
+    sns.heatmap(corr, annot=annot, cmap=cmap, fmt='.2f', linewidths=0.5, cbar_kws={'shrink': 0.8}, ax=ax)
 
     # Ajout du titre
-    plt.title(title)
+    ax.set_title(title)
+    
 
-    # Affichage de la heatmap
-    plt.show()
+    # Retourner la figure pour une utilisation ou un test ultérieur
+    return fig

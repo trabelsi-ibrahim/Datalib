@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+
 def bar_chart(dataframe, column, title=None, xlabel=None, ylabel=None, color='skyblue', figsize=(10, 6)):
     """
     Génère un graphique à barres.
@@ -29,8 +30,10 @@ def bar_chart(dataframe, column, title=None, xlabel=None, ylabel=None, color='sk
     plt.xlabel(xlabel or column)
     plt.ylabel(ylabel or 'Frequency')
 
-    # Affichage du graphique
-    plt.show()
+    # Retourner la figure pour les tests
+    return plt.gcf()  # plt.gcf() returns the current figure
+
+
 
 def histogram(dataframe, column, bins=30, title=None, xlabel=None, ylabel=None, color='skyblue', figsize=(10, 6)):
     """
@@ -47,23 +50,25 @@ def histogram(dataframe, column, bins=30, title=None, xlabel=None, ylabel=None, 
         figsize (tuple, optional): Taille de la figure (par défaut (10, 6)).
 
     Returns:
-        None
+        matplotlib.figure.Figure: La figure contenant l'histogramme.
     """
     # Vérification que la colonne existe
     if column not in dataframe.columns:
         raise ValueError(f"La colonne '{column}' n'existe pas dans le DataFrame.")
 
     # Création de l'histogramme
-    plt.figure(figsize=figsize)
-    dataframe[column].plot(kind="hist", bins=bins, color=color, edgecolor='black')
+    fig, ax = plt.subplots(figsize=figsize)
+    dataframe[column].plot(kind="hist", bins=bins, color=color, edgecolor='black', ax=ax)
 
     # Ajout du titre et des labels
-    plt.title(title or f"Histogram of {column}")
-    plt.xlabel(xlabel or column)
-    plt.ylabel(ylabel or 'Frequency')
+    ax.set_title(title or f"Histogram of {column}")
+    ax.set_xlabel(xlabel or column)
+    ax.set_ylabel(ylabel or 'Frequency')
 
-    # Affichage du graphique
-    plt.show()
+    # Retourner la figure pour une utilisation ou un test ultérieur
+    return fig
+
+
 
 def scatter_plot(dataframe, x_col, y_col, title=None, xlabel=None, ylabel=None, color='skyblue', figsize=(10, 6)):
     """
@@ -80,20 +85,20 @@ def scatter_plot(dataframe, x_col, y_col, title=None, xlabel=None, ylabel=None, 
         figsize (tuple, optional): Taille de la figure (par défaut (10, 6)).
 
     Returns:
-        None
+        matplotlib.figure.Figure: La figure contenant le nuage de points.
     """
     # Vérification que les colonnes existent
     if x_col not in dataframe.columns or y_col not in dataframe.columns:
         raise ValueError(f"Les colonnes '{x_col}' ou '{y_col}' n'existent pas dans le DataFrame.")
 
     # Création du nuage de points
-    plt.figure(figsize=figsize)
-    dataframe.plot(kind="scatter", x=x_col, y=y_col, color=color)
+    fig, ax = plt.subplots(figsize=figsize)
+    dataframe.plot(kind="scatter", x=x_col, y=y_col, color=color, ax=ax)
 
     # Ajout du titre et des labels
-    plt.title(title or f"Scatter Plot of {x_col} vs {y_col}")
-    plt.xlabel(xlabel or x_col)
-    plt.ylabel(ylabel or y_col)
+    ax.set_title(title or f"Scatter Plot of {x_col} vs {y_col}")
+    ax.set_xlabel(xlabel or x_col)
+    ax.set_ylabel(ylabel or y_col)
 
-    # Affichage du graphique
-    plt.show()
+    # Retourner la figure pour une utilisation ou un test ultérieur
+    return fig

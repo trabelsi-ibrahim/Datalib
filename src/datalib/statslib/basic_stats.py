@@ -62,20 +62,26 @@ def calculate_mode(dataframe: pd.DataFrame, column: str) -> Union[float, None]:
 def calculate_std(dataframe: pd.DataFrame, column: str) -> Union[float, None]:
     """
     Calcule l'écart-type d'une colonne dans le DataFrame.
-    
+
     Args:
         dataframe (pd.DataFrame): Le DataFrame contenant les données.
         column (str): Le nom de la colonne dont l'écart-type doit être calculé.
-    
+
     Returns:
-        Union[float, None]: L'écart-type de la colonne, ou None si la colonne est vide.
-    
+        Union[float, None]: L'écart-type de la colonne, ou None si la colonne est vide ou ne contient qu'une seule valeur.
+
     Raises:
         KeyError: Si la colonne spécifiée n'existe pas dans le DataFrame.
     """
     if column not in dataframe.columns:
         raise KeyError(f"La colonne '{column}' n'existe pas dans le DataFrame.")
+    
+    # Handle empty or single-value columns
+    if dataframe[column].nunique() <= 1:
+        return 0.0  # Standard deviation is 0 for single-value columns
+    
     return dataframe[column].std()
+
 
 def calculate_correlation(dataframe: pd.DataFrame, col1: str, col2: str) -> Optional[float]:
     """

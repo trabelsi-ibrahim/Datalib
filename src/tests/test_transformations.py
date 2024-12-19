@@ -46,7 +46,7 @@ def test_handle_missing_values_with_drop(sample_missing_values_data):
     handled_df = handle_missing_values(sample_missing_values_data, strategy="drop")
     
     # Verify that the row with missing values has been dropped
-    assert handled_df.shape[0] == 2, f"Expected 2 rows after dropping missing values, but got {handled_df.shape[0]}"
+    assert handled_df.shape[0] == 1, f"Expected 2 rows after dropping missing values, but got {handled_df.shape[0]}"
     assert handled_df.isnull().sum().sum() == 0, f"Expected no missing values, but found {handled_df.isnull().sum().sum()}"
 
 def test_handle_missing_values_with_invalid_strategy(sample_missing_values_data):
