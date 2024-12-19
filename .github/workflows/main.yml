@@ -26,11 +26,6 @@ jobs:
         pip install seaborn  # Install seaborn explicitly
         pip install pytest  # Install pytest explicitly if not in requirements.txt
 
-    - name: Set PYTHONPATH
+    - name: Run tests with PYTHONPATH
       run: |
-        echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV  # Add src directory to PYTHONPATH
-        echo "Adding src to PYTHONPATH: $(pwd)/src"
-
-    - name: Run tests
-      run: |
-        pytest
+        PYTHONPATH=src pytest  # Set PYTHONPATH directly for pytest
