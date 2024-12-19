@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
 import pytest
 import pandas as pd
 from datalib.preprocessing.transformations import normalize_data, handle_missing_values
