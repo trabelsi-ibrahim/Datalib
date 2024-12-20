@@ -7,12 +7,12 @@ long_description = (here / "README.md").read_text()
 
 setup(
     name="datalib_genta",
-    version="0.1.0",
+    version="0.1.2",
     description="A Python library for data manipulation, statistics, and visualization",
     long_description=long_description,
     long_description_content_type="text/markdown",  # Set the correct content type (markdown or reStructuredText)
     author="Ibrahim Trabelsi",
-    author_email="youremail@example.com",  # Update with your actual email
+    author_email="Trabelsi_Ibrahim@hotmail.com",  # Update with your actual email
     license="MIT",
     packages=find_packages(where="src"),
     package_dir={"": "src"},

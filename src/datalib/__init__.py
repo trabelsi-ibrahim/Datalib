@@ -3,3 +3,8 @@ from .statslib import calculate_mean, calculate_median, calculate_mode, calculat
 from .statslib import t_test, chi_square_test
 from .visualization import correlation_matrix, bar_chart, histogram, scatter_plot
 from .analysis import linear_regression, polynomial_regression, k_means_clustering, pca_analysis
+
+from .statslib import basic_stats, statistical_tests
+from .visualization import charts, advanced_viz
+from .preprocessing import csv_handler, transformations
+from .analysis import regression,clustering

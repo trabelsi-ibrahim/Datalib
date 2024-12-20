@@ -24,6 +24,11 @@ def k_means_clustering(X: np.ndarray, n_clusters: int) -> KMeans:
         raise ValueError("Les données d'entrée doivent être un tableau NumPy.")
     if n_clusters <= 0:
         raise ValueError("Le nombre de clusters doit être un entier positif.")
+    
+    # Check for non-numeric data
+    if not np.issubdtype(X.dtype, np.number):
+        raise ValueError("Les données d'entrée doivent être numériques.")
+
     if np.any(np.isnan(X)) or np.any(np.isinf(X)):
         raise ValueError("Les données d'entrée ne doivent pas contenir de valeurs NaN ou infinies.")
 
@@ -31,6 +36,7 @@ def k_means_clustering(X: np.ndarray, n_clusters: int) -> KMeans:
     model = KMeans(n_clusters=n_clusters, random_state=42)
     model.fit(X)
     return model
+
 
 
 def pca_analysis(X: np.ndarray, n_components: int) -> Tuple[np.ndarray, np.ndarray]:
@@ -51,11 +57,17 @@ def pca_analysis(X: np.ndarray, n_components: int) -> Tuple[np.ndarray, np.ndarr
     # Vérification des données d'entrée
     if not isinstance(X, np.ndarray):
         raise ValueError("Les données d'entrée doivent être un tableau NumPy.")
-    if np.any(np.isnan(X)) or np.any(np.isinf(X)):
-        raise ValueError("Les données d'entrée ne doivent pas contenir de valeurs NaN ou infinies.")
     if n_components <= 0 or n_components > X.shape[1]:
         raise ValueError(f"Le nombre de composantes principales doit être un entier positif et inférieur ou égal au nombre de caractéristiques (actuellement {X.shape[1]}).")
-    
+
+    # Check for non-numeric data
+    if not np.issubdtype(X.dtype, np.number):
+        raise ValueError("Les données d'entrée doivent être numériques.")
+
+    # Check for NaN or infinite values
+    if np.any(np.isnan(X)) or np.any(np.isinf(X)):
+        raise ValueError("Les données d'entrée ne doivent pas contenir de valeurs NaN ou infinies.")
+
     # Application de l'analyse en composantes principales (PCA)
     pca = PCA(n_components=n_components)
     X_pca = pca.fit_transform(X)

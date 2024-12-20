@@ -1,6 +1,6 @@
 [project]
 name = "datalib_genta"
-version = "0.1.0"
+version = "0.1.2"
 description = "A Python library for data manipulation, statistical analysis, and machine learning."
 readme = "README.md"
 license = { text = "MIT" }
