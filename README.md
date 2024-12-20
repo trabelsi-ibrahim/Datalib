@@ -1,4 +1,3 @@
-Here’s how we can enhance the `README` for the `DataLib` project with some usage examples for each feature, so users can easily understand how to use the library's functions.
 
 ---
 
@@ -192,4 +191,3 @@ print(f"Predictions: {predictions}")
 
 ---
 
-This updated `README` provides clear examples on how to use various functions within the `DataLib` library, helping users get started quickly. You can adapt this further based on your users' needs.
